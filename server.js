@@ -17,5 +17,7 @@ var rollbar = new Rollbar({
 rollbar.log('Hello world!')
 
 app.get("/api/try", controller.nonExistentFunction)
+app.get("/api/critical", controller.criticalRollbar)
+app.get("/api/warning", controller.warningRollbar)
 
 app.listen(4000, () => console.log("Server up on 4000"))

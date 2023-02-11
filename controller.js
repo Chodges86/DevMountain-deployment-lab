@@ -14,5 +14,13 @@ module.exports = {
         } catch (err) {
             rollbar.error("api/try is an endpoint with a non-existent function")
         }
+    },
+
+    criticalRollbar: () => {
+        rollbar.critical("Critical Message")
+    },
+
+    warningRollbar: () => {
+        rollbar.warning("Warning Message")
     }
 }
