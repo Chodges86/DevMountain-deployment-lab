@@ -1,4 +1,5 @@
 const express = require('express')
+const controller = require('./controller')
 
 const app = express()
 
@@ -15,12 +16,6 @@ var rollbar = new Rollbar({
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
 
-app.get("/api/try", () => {
-    try {
-        nonExistentFunction()
-    } catch (err) {
-        rollbar.error("api/try is an endpoint with a non-existent function")
-    }
-})
+app.get("/api/try", controller.nonExistentFunction)
 
 app.listen(4000, () => console.log("Server up on 4000"))
