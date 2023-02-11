@@ -2,6 +2,7 @@ console.log("Connected")
 
 const button = document.getElementById('button')
 
+const { default: axios } = require('axios')
 var Rollbar = require('rollbar')
 var rollbar = new Rollbar({
   accessToken: '565a491f405b4f978ed6073d0dc3cef3',
@@ -11,8 +12,10 @@ var rollbar = new Rollbar({
 
 function alertMessage() {
     const h1 = document.querySelector('h1')
-    h1.textContent = "Bite My Shiny Metal Ass!"
-    rollbar.info("Somebody clicked the button! HAHA!")
+    axios
+    .get("/api/message")
+    .then((res) => h1.textContent = res)
+    
 }
 
 button.addEventListener('click', alertMessage)

@@ -22,5 +22,10 @@ module.exports = {
 
     warningRollbar: () => {
         rollbar.warning("Warning Message")
+    },
+
+    getMessage: (req, res) => {
+        rollbar.info("Somebody clicked the button! HAHA!")
+        res.status(200).send("Bite my shiny metal Ass")
     }
 }
