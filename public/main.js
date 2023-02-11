@@ -5,8 +5,8 @@ const button = document.getElementById('button')
 function alertMessage() {
     const h1 = document.querySelector('h1')
     axios
-    .get("/api/message")
-    .then((res) => h1.textContent = res)
+    .get("http://localhost:4000/api/message")
+    .then((res) => h1.textContent = res.data)
     
 }
 
